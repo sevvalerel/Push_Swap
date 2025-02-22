@@ -1,8 +1,8 @@
 NAME = push_swap
 
-SRCS = 
+SRCS =move0.c move1.c list.c control.c push_swap.c functions.c move2.c
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 OBJS = $(SRCS:.c=.o)
 
