@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bucolak <bucolak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:34:37 by seerel            #+#    #+#             */
-/*   Updated: 2025/02/22 17:04:47 by seerel           ###   ########.fr       */
+/*   Updated: 2025/02/22 17:32:37 by bucolak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ t_stack *ft_addback(t_stack **lst, char *node)
     t_stack *new_node;
     t_stack *last;
     new_node = (t_stack *)malloc(sizeof(t_stack));
+    if(!lst)
+        return NULL;
     if (!new_node)
         return NULL;
     
     new_node->data = ft_atoi(node);
     new_node->next = NULL;
     
-    if (lst==NULL)
+    if (!(*lst))
         *lst = new_node;
     else
     {

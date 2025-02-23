@@ -64,11 +64,11 @@ int	ft_isdigit(int x)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
-	int	result;
+	long	result;
 
 	i = 0;
 	sign = 1;

@@ -27,33 +27,40 @@ int main(int argc, char **argv)
     }
     if(str==NULL)
         error();
-    while(str[++i])
-    {
-        if(!check_num(str)&&!repeat(str)&&check_sorted(str)&&check_long(str))
-            error();
-    }
-
+    if(!check_num(str) || !repeat(str) || check_sorted(str) || !check_long(str))
+        error();
+    
     stack_a=(t_stack **)malloc(sizeof(t_stack));
     stack_b=(t_stack **)malloc(sizeof(t_stack));
     if(stack_a == NULL || stack_b== NULL )
     {
-        free(stack_a);
-        free(stack_b);
+        free_stack(stack_a);
+        free_stack(stack_b);
         error();// gerek var mı?
     }
-    stack_a=NULL;
-    stack_b=NULL;
-    i=0;
-    while(str[i])
+    while(str[++i])
     {
         ft_addback(stack_a,str[i]);
-        i++;
     }
-    while(*stack_a)
-    {
-        printf("%d",(*stack_a)->data);
-        *stack_a=(*stack_a)->next;
-    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    // while(*stack_a)
+    // {
+    //     printf("%d ",(*stack_a)->data);
+    //     *stack_a=(*stack_a)->next;
+    // }
+
 
 
 }

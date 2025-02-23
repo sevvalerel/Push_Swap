@@ -23,13 +23,14 @@ void ra(t_stack **stack_a);
 void rb(t_stack **stack_b);
 void rra(t_stack **stack_a);
 void rrb(t_stack **stack_b);
-int	ft_isdigit(int x);
-int	ft_atoi(char *str);
+int ft_isdigit(int x);
+long ft_atoi(char *str);
 int check_num(char **str);
 int repeat(char **str);
 int check_sorted(char **str);
 int check_long(char **str);
-char	**ft_split(char *s, char c);
+char **ft_split(char *s, char c);
 t_stack *ft_addback(t_stack **lst, char *node);
+void free_stack(t_stack **stack);
 
 #endif
