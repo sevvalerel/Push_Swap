@@ -32,5 +32,6 @@ int check_long(char **str);
 char **ft_split(char *s, char c);
 t_stack *ft_addback(t_stack **lst, char *node);
 void free_stack(t_stack **stack);
+void indexing(t_stack **stack);
 
 #endif
