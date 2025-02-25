@@ -33,5 +33,10 @@ char **ft_split(char *s, char c);
 t_stack *ft_addback(t_stack **lst, char *node);
 void free_stack(t_stack **stack);
 void indexing(t_stack **stack);
+void arg_2(t_stack **stack_a);
+t_stack *min_node(t_stack *a);
+void arg_3(t_stack **stack_a, t_stack **stack_b);
+void arg_4(t_stack **stack_a, t_stack **stack_b);
+void arg_5(t_stack **stack_a, t_stack **stack_b);
 
 #endif
