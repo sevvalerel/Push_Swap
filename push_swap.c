@@ -8,16 +8,28 @@ int error()
 #include <stdio.h>
 void sorting(t_stack **stack_a, t_stack **stack_b, char **str)
 {
+    int len=0;
     int i = 0;
-    while (str[++i])
+    while (str[i])
+    {
         ft_addback(stack_a, str[i]);
-    printf("%d\n",ft_listsize(*stack_a));
+        i++;
+    }
+    len=ft_listsize(*stack_a);
     indexing(stack_a);
-    radix(stack_a, stack_b);
+    if(len==2)
+        arg_2(stack_a);
+    else if(len==3)
+        arg_3(stack_a ,stack_b);
+    else if(len==4)
+        arg_4(stack_a ,stack_b);
+    else if(len==5)
+        arg_5(stack_a ,stack_b);       
+    else
+        radix(stack_a, stack_b);
     free_stack(stack_a);
     free_stack(stack_b);
 }
-
 
 int main(int argc, char **argv)
 {
@@ -30,6 +42,7 @@ int main(int argc, char **argv)
 
     if (argc == 2)
         str = ft_split(argv[1], ' ');
+
     else
         str = argv + 1;
 
@@ -38,10 +51,9 @@ int main(int argc, char **argv)
 
     if (!check_num(str) || !repeat(str) || check_sorted(str) || !check_long(str))
         error();
-
     sorting(&stack_a, &stack_b, str);
 
     if (argc == 2)
-        free(str); 
+        free(str);
     return 0;
 }

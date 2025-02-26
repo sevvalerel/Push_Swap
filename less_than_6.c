@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:55:43 by seerel            #+#    #+#             */
-/*   Updated: 2025/02/25 14:53:38 by seerel           ###   ########.fr       */
+/*   Updated: 2025/02/26 17:56:40 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,80 +71,3 @@ void arg_5(t_stack **stack_a, t_stack **stack_b)
 
     pa(stack_a, stack_b);
 }
-
-
-
-
-#include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-t_stack *new_node(int data)
-{
-    t_stack *node = malloc(sizeof(t_stack));
-    if (!node)
-        return NULL;
-    node->data = data;
-    node->next = NULL;
-    return node;
-}
-
-void print_stack(t_stack *stack, char *name)
-{
-    printf("%s: ", name);
-    while (stack)
-    {
-        printf("%d -> ", stack->data);
-        stack = stack->next;
-    }
-    printf("NULL\n");
-}
-
-void append_node(t_stack **stack, int data)
-{
-    t_stack *new = new_node(data);
-    if (!new)
-        return;
-
-    if (!*stack)
-    {
-        *stack = new;
-        return;
-    }
-
-    t_stack *temp = *stack;
-    while (temp->next)
-        temp = temp->next;
-    temp->next = new;
-}
-
-int main()
-{
-    t_stack *stack_a = NULL;
-    append_node(&stack_a, 2);
-    append_node(&stack_a, 1);
-    append_node(&stack_a, 3);
-    append_node(&stack_a, 6);
-    append_node(&stack_a, 5);
-
-    t_stack *stack_b = NULL;
-
-    // printf("Başlangıç:\n");
-    // print_stack(stack_a, "Stack A");
-    // print_stack(stack_b, "Stack B");
-
-    // printf("\n*** 3 Eleman için Sıralama (arg_3) ***\n");
-    // arg_3(&stack_a, &stack_b);
-    // print_stack(stack_a, "Stack A");
-    // print_stack(stack_b, "Stack B");
-
-    printf("\n*** 5 Eleman için Sıralama (arg_4) ***\n");
-    arg_5(&stack_a, &stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-
-    return 0;
-}
-
-
-

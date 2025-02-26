@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:31:13 by seerel            #+#    #+#             */
-/*   Updated: 2025/02/23 15:31:25 by seerel           ###   ########.fr       */
+/*   Updated: 2025/02/26 17:44:10 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void free_stack(t_stack **stack)
         node = node->next;
         free(temp);
     }
-    free(stack);
 }

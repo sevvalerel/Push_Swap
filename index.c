@@ -41,7 +41,9 @@ void indexing(t_stack **stack)
     {
         temp = get_min(stack);
         if (temp)
+        {
             temp->index = i;
+        }   
         i++;
     }
 }

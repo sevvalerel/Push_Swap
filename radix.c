@@ -40,7 +40,7 @@ void radix(t_stack **stack_a, t_stack **stack_b)
             j++;
         }
         while (*stack_b)
-            pa(stack_b, stack_a);
+            pa(stack_a, stack_b);
         i++;
     }
 }
