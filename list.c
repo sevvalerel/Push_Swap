@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:34:37 by seerel            #+#    #+#             */
-/*   Updated: 2025/02/26 15:22:51 by seerel           ###   ########.fr       */
+/*   Updated: 2025/02/26 16:20:21 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,18 @@ t_stack *ft_addback(t_stack **lst, char *node)
 {
     t_stack *new_node;
     t_stack *last;
-    new_node = (t_stack *)malloc(sizeof(t_stack));
-    if(!lst)
+
+    if (!lst)
         return NULL;
+
+    new_node = (t_stack *)malloc(sizeof(t_stack));
     if (!new_node)
         return NULL;
+
     new_node->data = ft_atoi(node);
+    new_node->index = -1;
     new_node->next = NULL;
+
     if (!(*lst))
         *lst = new_node;
     else
@@ -51,6 +56,8 @@ t_stack *ft_addback(t_stack **lst, char *node)
         last = ft_lstlast(*lst);
         last->next = new_node;
     }
+
     return new_node;
 }
+
 

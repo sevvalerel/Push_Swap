@@ -40,6 +40,7 @@ void arg_4(t_stack **stack_a, t_stack **stack_b);
 void arg_5(t_stack **stack_a, t_stack **stack_b);
 void radix(t_stack **stcak_a, t_stack **stcak_b);
 int max_bits(t_stack **stack_a);
-void sorting(t_stack *stack_a, t_stack *stack_b, char **str);
+void sorting(t_stack **stack_a, t_stack **stack_b, char **str);
+
 
 #endif
