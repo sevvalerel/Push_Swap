@@ -1,142 +1,127 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/19 16:17:59 by esever            #+#    #+#             */
+/*   Updated: 2025/02/26 20:17:35 by seerel           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-
-size_t	ft_strlen(char *s)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (!destsize)
+		return (ft_strlen((char *)src));
+	while (src[i] && (i < destsize - 1))
 	{
+		dest[i] = src[i];
 		i++;
 	}
-	return (i);
+	dest[i] = 0;
+	return (ft_strlen((char *)src));
 }
 
-size_t	ft_strlcpy(char *dest, char *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	end;
+	size_t	s_len;
+	char	*d;
+
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen((char *)s);
+	if (start > (s_len))
+		return (ft_strdup(""));
+	end = start + len;
+	if (end > (s_len))
+		len = s_len - start;
+	d = malloc((len + 1) * sizeof(char));
+	if (!d)
+		return (NULL);
+	ft_strlcpy(d, s + start, len + 1);
+	return ((char *)d);
+}
+
+size_t	count_word(const char *p, char c)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = 0;
+	while (p[i])
+	{
+		while (p[i] == c && p[i])
+			i++;
+		if (p[i] != c && p[i])
+		{
+			len++;
+			while (p[i] != c && p[i])
+				i++;
+		}
+	}
+	return (len);
+}
+
+size_t	check(char **list, size_t count)
+{
+	if (!list[count])
+	{
+		while (count > 0)
+			free(list[--count]);
+		free(list);
+		return (0);
+	}
+	return (1);
+}
+
+void	free_split(char **list)
 {
 	size_t	i;
 
+	if (!list)
+		return;
 	i = 0;
-	if (n > 0)
+	while (list[i])
 	{
-		while (i < (n - 1) && src[i] != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		free(list[i]);
+		i++;
 	}
-	return (ft_strlen(src));
+	free(list);
 }
 
-char	*ft_substr(char*s, unsigned int start, size_t len)
+char	**ft_split(char const *s, char c)
 {
-	char	*str;
-	char	*src;
+	char	**list;
+	size_t	count = 0;
+	const char	*begin;
 
-	src = (char *)s;
-	if (!src)
+	if (!s || !(list = malloc(sizeof(char *) * (count_word(s, c) + 1))))
 		return (NULL);
-	if (start >= ft_strlen(s))
+	while (*s)
 	{
-		str = (char *)malloc(sizeof(char));
-		if (!str)
-			return (NULL);
-		*str = '\0';
-	}
-	else
-	{
-		if ((ft_strlen(s) - start) < len)
-			len = ft_strlen(s) - start;
-		str = (char *)malloc((sizeof(char) * len) + 1);
-		if (!str)
-			return (NULL);
-		ft_strlcpy(str, (char *)(s + start), len + 1);
-	}
-	return (str);
-}
-
-int	ft_isdigit(int x)
-{
-	if (x >= '0' && x <= '9')
-		return (1);
-	return (0);
-}
-
-long	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	long	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			sign = -1;
-		}
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
-}
-
-static int	ft_count_words(char*s, char c)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			i++;
-		else
-		{
-			count++;
-			while (s[i] && s[i] != c)
-				i++;
+			begin = s;
+			while (*s && *s != c)
+				s++;
+			if (!(list[count++] = ft_substr(begin, 0, s - begin)))
+			{
+				free_split(list);
+				return (NULL);
+			}	
 		}
 	}
-	return (count);
-}
-
-char	**ft_split(char*s, char c)
-{
-	char	**str;
-	int		i;
-	int		j;
-	int		start;
-
-	i = 0;
-	j = 0;
-	str = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (!str)
-		return (NULL);
-	while (s[i])
-	{
-		if (s[i] == c)
-			i++;
-		else
-		{
-			start = i;
-			while (s[i] && s[i] != c)
-				i++;
-			str[j++] = ft_substr(s, start, i - start);
-		}
-	}
-	str[j] = NULL;
-	return (str);
+	list[count] = NULL;
+	return (list);
 }
 

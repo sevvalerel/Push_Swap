@@ -30,7 +30,8 @@ int check_num(char **str);
 int repeat(char **str);
 int check_sorted(char **str);
 int check_long(char **str);
-char **ft_split(char *s, char c);
+char	**ft_split(char const *s, char c);
+size_t	check(char **list, size_t count);
 t_stack *ft_addback(t_stack **lst, char *node);
 void free_stack(t_stack **stack);
 void indexing(t_stack **stack);
@@ -42,6 +43,10 @@ void arg_5(t_stack **stack_a, t_stack **stack_b);
 void radix(t_stack **stcak_a, t_stack **stcak_b);
 int max_bits(t_stack **stack_a);
 void sorting(t_stack **stack_a, t_stack **stack_b, char **str);
-
+size_t	check(char **list, size_t count);
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
+int	ft_strlen(const char *s);
+char	*ft_strdup(const char *s1);
+void	free_split(char **list);
 
 #endif

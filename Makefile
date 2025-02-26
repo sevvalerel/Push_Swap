@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = move0.c move1.c list.c control.c push_swap.c functions.c move2.c free.c index.c radix.c less_than_6.c
+SRCS = move0.c move1.c list.c control.c push_swap.c functions.c move2.c free.c index.c radix.c less_than_6.c function1.c
 
 CFLAGS = -Wall -Wextra -Werror 
 

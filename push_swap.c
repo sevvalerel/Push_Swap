@@ -52,8 +52,5 @@ int main(int argc, char **argv)
     if (!check_num(str) || !repeat(str) || check_sorted(str) || !check_long(str))
         error();
     sorting(&stack_a, &stack_b, str);
-
-    if (argc == 2)
-        free(str);
     return 0;
 }
