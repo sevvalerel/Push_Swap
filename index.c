@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:39:55 by seerel            #+#    #+#             */
-/*   Updated: 2025/02/24 19:36:46 by seerel           ###   ########.fr       */
+/*   Updated: 2025/02/26 15:27:19 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void indexing(t_stack **stack)
             temp = get_min(stack);
             temp->index = a;
         }
+        node = node->next;
         a++;
     }
 }
