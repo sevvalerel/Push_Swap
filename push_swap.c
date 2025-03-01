@@ -41,15 +41,23 @@ int main(int argc, char **argv)
         return 0;
 
     if (argc == 2)
+    {
         str = ft_split(argv[1], ' ');
+        free_split(str);
+    } 
 
     else
         str = argv + 1;
 
     if (str == NULL)
         error();
-
-    if (!check_num(str) || !repeat(str) || check_sorted(str) || !check_long(str))
+    if(check_sorted(&stack_a))
+    {
+        free_stack(&stack_a);
+        free_stack(&stack_b);
+        return 0;
+    }
+    if (!check_num(str) || !repeat(str) ||!check_long(str))
         error();
     sorting(&stack_a, &stack_b, str);
     return 0;

@@ -49,17 +49,20 @@ int repeat(char **str)
     return 1;
 }
 
-int check_sorted(char **str)
+int	check_sorted(t_stack **stack)
 {
-    int i=0;
-    while(str[i]!=NULL && str[i+ 1])
-    {
-        if(ft_atoi(str[i])<ft_atoi(str[i+1]))
-            i++;
-        else 
-            return 0;
-    }
-    return 1;
+	t_stack	*node;
+
+	node = *stack;
+	if (!node || !node->next)
+		return (1);
+	while (node->next)
+	{
+		if (node->data > node->next->data)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }
 
 int check_long(char **str)

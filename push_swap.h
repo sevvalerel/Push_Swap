@@ -28,7 +28,7 @@ int ft_isdigit(int x);
 long ft_atoi(char *str);
 int check_num(char **str);
 int repeat(char **str);
-int check_sorted(char **str);
+int	check_sorted(t_stack **stack);
 int check_long(char **str);
 char	**ft_split(char const *s, char c);
 size_t	check(char **list, size_t count);
