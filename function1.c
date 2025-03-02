@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function1.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 16:18:58 by seerel            #+#    #+#             */
+/*   Updated: 2025/03/02 12:50:48 by seerel           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
 int	ft_isdigit(int x)
 {
 	if (x >= '0' && x <= '9')
@@ -8,8 +21,8 @@ int	ft_isdigit(int x)
 
 long	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	result;
 
 	i = 0;
@@ -20,9 +33,7 @@ long	ft_atoi(char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			sign = -1;
-		}
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -32,6 +43,7 @@ long	ft_atoi(char *str)
 	}
 	return (result * sign);
 }
+
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -45,7 +57,7 @@ int	ft_strlen(const char *s)
 char	*ft_strdup(const char *s1)
 {
 	char	*d;
-	int	slen;
+	int		slen;
 
 	slen = ft_strlen((char *)s1);
 	d = (char *)malloc((slen + 1) * (sizeof(char)));
@@ -59,4 +71,20 @@ char	*ft_strdup(const char *s1)
 	}
 	*d = '\0';
 	return ((char *)(d - slen));
+}
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (!destsize)
+		return (ft_strlen((char *)src));
+	while (src[i] && (i < destsize - 1))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (ft_strlen((char *)src));
 }
