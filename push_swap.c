@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:20:51 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 13:03:51 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/02 14:14:02 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static int	check_arguments(char **str, int is_split_used)
 	{
 		if (is_split_used)
 			free_split(str);
+		error();
 		return (0);
 	}
 	return (1);
