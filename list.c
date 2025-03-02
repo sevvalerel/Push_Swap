@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:34:37 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 12:57:55 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/02 14:31:57 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_stack	*ft_addback(t_stack **lst, char *node)
 	if (!new_node)
 		return (NULL);
 	new_node->data = ft_atoi(node);
-	new_node->index = -1;
 	new_node->next = NULL;
 	if (!(*lst))
 		*lst = new_node;

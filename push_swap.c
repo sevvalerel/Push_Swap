@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:20:51 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 14:14:02 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/02 15:23:15 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	error(void)
 {
-	write(1, "error\n", 6);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 
@@ -35,7 +35,7 @@ void	sorting(t_stack **stack_a, t_stack **stack_b, char **str)
 	if (len == 2)
 		arg_2(stack_a);
 	else if (len == 3)
-		arg_3(stack_a, stack_b);
+		arg_3(stack_a);
 	else if (len == 4)
 		arg_4(stack_a, stack_b);
 	else if (len == 5)

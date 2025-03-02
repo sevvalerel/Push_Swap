@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 13:05:36 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 13:07:31 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/02 15:22:22 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	free_stack(t_stack **stack);
 void	indexing(t_stack **stack);
 void	arg_2(t_stack **stack_a);
 t_stack	*min_node(t_stack *a);
-void	arg_3(t_stack **stack_a, t_stack **stack_b);
+void	arg_3(t_stack **stack_a);
 void	arg_4(t_stack **stack_a, t_stack **stack_b);
 void	arg_5(t_stack **stack_a, t_stack **stack_b);
 void	radix(t_stack **stack_a, t_stack **stack_b);
