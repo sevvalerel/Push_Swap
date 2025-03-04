@@ -6,7 +6,7 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:58:53 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 12:58:56 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/03 12:22:10 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,4 @@ void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
 	write(1, "sb\n", 3);
-}
-
-void	ss(t_stack **stack_a, t_stack **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-	write(1, "ss\n", 3);
 }

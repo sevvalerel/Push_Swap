@@ -6,13 +6,13 @@
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:21:10 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/02 13:04:29 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/03 10:30:58 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	max_bits(t_stack **stack_a)
+static	int	max_bits(t_stack **stack_a)
 {
 	t_stack	*node;
 	int		max;
