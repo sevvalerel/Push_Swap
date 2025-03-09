@@ -64,11 +64,3 @@ pa
 pa
 ```
 (Bu, verilen sayıları sıralamak için kullanılan optimize edilmiş komut listesidir.)
-
-## 9. Kaynaklar
-- [42 School Subject PDF](https://github.com/42docs/push_swap)
-- Algoritma optimizasyonu üzerine çeşitli kaynaklar ve makaleler.
-
-## 10. Lisans
-Bu proje **42 School** eğitim programı kapsamında geliştirilmiştir ve herhangi bir ticari kullanım amacı taşımamaktadır.
-
