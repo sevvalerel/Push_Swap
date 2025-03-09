@@ -1,4 +1,4 @@
-# push_swap
+# Push_Swap
 
 ## 1. Proje Açıklaması
 **push_swap**, belirli kurallar çerçevesinde verilen bir dizi tamsayıyı sıralamak için kullanılan bir algoritma uygulamasıdır. Bu proje, sınırlı sayıda komut kullanarak **en az adımda** sıralama yapmayı amaçlayan verimli bir sıralama algoritması geliştirmeyi hedefler.
@@ -39,10 +39,18 @@
 
 ## 5. Algoritma Mantığı
 - **Küçük sayılar için özel durumlar**: 2-5 eleman için özel sıralama stratejileri uygulanır.
-- **Hızlı sıralama algoritması**: Büyük girişlerde, **Radix Sort**, **Quick Sort**, veya **Merge Sort** gibi algoritmalar baz alınarak optimize edilmiş bir yaklaşım kullanılır.
+- **Bit Manipülasyonu ile Sıralama**: Büyük veri setleri için **Radix Sort** algoritması bit manipülasyonu ile optimize edilmiştir. 
+  - İlk olarak, giriş değerleri sıralı bir şekilde indexlenir.
+  - Indexlenen sayılar, en az bit kaydırma işlemi ile sıralanacak şekilde değerlendirilir.
+  - **LSB (Least Significant Bit) bazlı sıralama** kullanılarak, en düşük bitlerden başlanarak sıralama yapılır.
 - **Komut optimizasyonu**: Gereksiz hareketleri en aza indiren akıllı sıralama teknikleri uygulanır.
 
-## 6. Örnek Kullanım
+## 6. Hata Yönetimi
+- **Geçersiz karakterler veya harfler içeren girişler** hata mesajı döndürmelidir.
+- **Tekrarlayan sayılar girildiğinde** program hata vermelidir.
+- **Tamsayı sınırlarını aşan değerler** kabul edilmemelidir.
+
+## 7. Örnek Kullanım
 ### Girdi:
 ```sh
 ./push_swap 5 1 4 2 3
@@ -56,4 +64,11 @@ pa
 pa
 ```
 (Bu, verilen sayıları sıralamak için kullanılan optimize edilmiş komut listesidir.)
+
+## 9. Kaynaklar
+- [42 School Subject PDF](https://github.com/42docs/push_swap)
+- Algoritma optimizasyonu üzerine çeşitli kaynaklar ve makaleler.
+
+## 10. Lisans
+Bu proje **42 School** eğitim programı kapsamında geliştirilmiştir ve herhangi bir ticari kullanım amacı taşımamaktadır.
 
