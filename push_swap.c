@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seerel <seerel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:20:51 by seerel            #+#    #+#             */
-/*   Updated: 2025/03/03 10:49:24 by seerel           ###   ########.fr       */
+/*   Updated: 2025/03/09 07:39:20 by seerel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	error(void)
+static void	error(void)
 {
 	write(1, "Error\n", 6);
 	exit(1);
@@ -50,17 +50,17 @@ static int	check_arguments(char **str, int is_split_used)
 {
 	if (!str)
 		return (0);
-	if (check_sorted(str))
-	{
-		if (is_split_used)
-			free_split(str);
-		return (0);
-	}
 	if (!check_num(str) || !repeat(str) || !check_long(str))
 	{
 		if (is_split_used)
 			free_split(str);
 		error();
+		return (0);
+	}
+	if (check_sorted(str))
+	{
+		if (is_split_used)
+			free_split(str);
 		return (0);
 	}
 	return (1);
